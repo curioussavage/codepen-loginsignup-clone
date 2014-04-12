@@ -114,3 +114,8 @@ button {
 	text-decoration: none !important;
 	cursor: pointer;
 }
+
+/*    my custom styles */
+.signup-form {
+	display: none;
+}

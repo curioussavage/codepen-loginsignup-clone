@@ -31,6 +31,40 @@ Reponse Objects:
 
 $('document').ready(function() {
 
-	//put code here
+
+	// make the forms appear and disappear //
+
+	$(".login-form-btn").on("click", function(){
+		$(".login-form").show();
+		$(".signup-form").hide();
+
+		$(".login-form").addClass("active");
+		$(".signup-form").removeClass("active");
+	})
+	$(".signup-form-btn").on("click", function(){
+		$(".login-form").hide();
+		$(".signup-form").show();
+
+		$(".signup-form").addClass("active");
+		$(".login-form").removeClass("active");
+	})
 
 });
+
+
+//   on submit  click use the form fields to give a new object 
+//  properties  to send 
+	
+	// make object for login user
+	function MakeUser(user, pass) {
+		username: user;
+		password: pass;
+	}
+
+	$(btn-login).on("click", function () {
+		var user = new Makeuser($(".login-username-field").val(),".login-password-field").val())
+		codepen.api.login(user);
+	})
+
+
+
