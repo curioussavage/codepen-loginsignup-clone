@@ -109,3 +109,4 @@ codepen.api.login = function(user) {
 }
 
 codepen.objects = {};
+codepen.objects.user = [];

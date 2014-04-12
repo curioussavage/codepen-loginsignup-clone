@@ -50,10 +50,7 @@ $('document').ready(function() {
 		$(".login-form").removeClass("active");
 	})
 
-	// function Makeuser(user, pass) {
-	// 	username: user;
-	// 	password: pass;
-	// }
+	
 
 	var user = {};
 
@@ -67,18 +64,47 @@ $('document').ready(function() {
 
 	})
 
-	var newuser ={};
+	function Newuser(name, email, user, pass) {
+		this.name = name;
+		this.email = email;
+		this.username = user;
+		this.password = pass;
+
+	}
+
+	$("#signup-password-field").on("input", function (){
+
+		if ($("#signup-password-field").val() != $("#signup-password-field2").val() ) {    //|| !reg_password.test($("#signup-password-field").val()
+					$(".btn-signup").attr("disabled", true);
+		}
+		else {
+			$(".btn-signup").attr("disabled", false);
+		}
+
+	})
+
+	
 
 
 	$(".btn-signup").on("click", function () {
-			newuser.name = $("#signup-name-field").val();
-			newuser.email =  $("#signup-email-field").val();
-			newuser.username =  $("#signup-username-field").val();
-			newuser.password =  $("#signup-password-field").val();
-			newuser.password =  $("#signup-password-field").val();
+			var name = $("#signup-name-field").val();
+			var email =  $("#signup-email-field").val();
+			var username =  $("#signup-username-field").val();
+			var password =  $("#signup-password-field").val();
+
+
+			var response = codepen.api.signup(codepen.objects[username] = new Newuser(name,email,username,password));
+
+			//   old way
+			// newuser.name = $("#signup-name-field").val();
+			// newuser.email =  $("#signup-email-field").val();
+			// newuser.username =  $("#signup-username-field").val();
+			// newuser.password =  $("#signup-password-field").val();
+			// newuser.password =  $("#signup-password-field").val();
 			
-			codepen.api.signup(user);
-			console.log(codepen.api.signup(newuser));
+			
+			console.log(response);
+			console.log(codepen.objects);
 
 	})		
 
