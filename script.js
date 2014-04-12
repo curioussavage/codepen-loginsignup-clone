@@ -1,3 +1,4 @@
+
 /*
 
 ############## API ##############
@@ -66,14 +67,24 @@ $('document').ready(function() {
 
 	})
 
+	var newuser ={};
+
+
+	$(".btn-signup").on("click", function () {
+			newuser.name = $("#signup-name-field").val();
+			newuser.email =  $("#signup-email-field").val();
+			newuser.username =  $("#signup-username-field").val();
+			newuser.password =  $("#signup-password-field").val();
+			newuser.password =  $("#signup-password-field").val();
+			
+			codepen.api.signup(user);
+			console.log(codepen.api.signup(newuser));
+
+	})		
+
 
 });
 
-
-//   on submit  click use the form fields to give a new object 
-//  properties  to send 
-	
-	// make object for login user
 
 
 
