@@ -49,6 +49,24 @@ $('document').ready(function() {
 		$(".login-form").removeClass("active");
 	})
 
+	// function Makeuser(user, pass) {
+	// 	username: user;
+	// 	password: pass;
+	// }
+
+	var user = {};
+
+	$(".btn-login").on("click", function () {
+		user.username = $("#login-username-field").val();
+		user.password =  $("#login-password-field").val();
+		//var user = new Makeuser(name, secret);
+		
+		codepen.api.login(user);
+		console.log(codepen.api.login(user));
+
+	})
+
+
 });
 
 
@@ -56,15 +74,7 @@ $('document').ready(function() {
 //  properties  to send 
 	
 	// make object for login user
-	function MakeUser(user, pass) {
-		username: user;
-		password: pass;
-	}
 
-	$(btn-login).on("click", function () {
-		var user = new Makeuser($(".login-username-field").val(),".login-password-field").val())
-		codepen.api.login(user);
-	})
 
 
 
