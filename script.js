@@ -52,9 +52,9 @@ $('document').ready(function() {
 
 	
 
-	var user = {};
+	var user = {};    //user object
 
-	$(".btn-login").on("click", function () {
+	$(".btn-login").on("click", function () {               // on click  send the user login/pass to the login api
 		user.username = $("#login-username-field").val();
 		user.password =  $("#login-password-field").val();
 		//var user = new Makeuser(name, secret);
@@ -64,7 +64,7 @@ $('document').ready(function() {
 
 	})
 
-	function Newuser(name, email, user, pass) {
+	function Newuser(name, email, user, pass) {         //  constructor for the new user objects
 		this.name = name;
 		this.email = email;
 		this.username = user;
@@ -72,13 +72,17 @@ $('document').ready(function() {
 
 	}
 
-	$("#signup-password-field").on("input", function (){
+	$("#signup-password-field").on("input", function (){          // this function disables the submit button when the passwords arent the same.
 
 		if ($("#signup-password-field").val() != $("#signup-password-field2").val() ) {    //|| !reg_password.test($("#signup-password-field").val()
-					$(".btn-signup").attr("disabled", true);
+					// $(".btn-signup").attr("disabled", true);     this works
+					// $(".btn-signup").addClass("disabled");       need to make a better disabled class
+					$(".btn-signup").hide();
 		}
 		else {
-			$(".btn-signup").attr("disabled", false);
+			// $(".btn-signup").attr("disabled", false);
+			// $(".btn-signup").removeClass("disabled");
+			$(".btn-signup").show();
 		}
 
 	})
@@ -86,10 +90,10 @@ $('document').ready(function() {
 	
 
 
-	$(".btn-signup").on("click", function () {
-			var name = $("#signup-name-field").val();
-			var email =  $("#signup-email-field").val();
-			var username =  $("#signup-username-field").val();
+	$(".btn-signup").on("click", function () {              //  on clicking the signup button assigns the values of the fields
+			var name = $("#signup-name-field").val();       //   to these variables then on line 100 call calls the signup function
+			var email =  $("#signup-email-field").val();      //  then it calls the Newuser constructor with the new username as the key
+			var username =  $("#signup-username-field").val();  //
 			var password =  $("#signup-password-field").val();
 
 
@@ -103,8 +107,9 @@ $('document').ready(function() {
 			// newuser.password =  $("#signup-password-field").val();
 			
 			
-			console.log(response);
-			console.log(codepen.objects);
+			console.log(response);                      //  logs the servers response
+			console.log(codepen.objects.adam01);        // this line is for testing, you have to know the username of the user you made to test.
+                                                        // this logs the newuser object.  need to make a function to log all of the new users
 
 	})		
 
